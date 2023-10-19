@@ -5,16 +5,16 @@ import sys, traceback
 
 
 if os.getuid() != 0:
-	print "Sorry. This script requires sudo privledges"
+	print("Sorry. This script requires sudo privledges")
 	sys.exit()
 def main():
 	try:
 		print ('''
 
- $$\   $$\             $$\                         $$\ $$\           
- $$ | $$  |            $$ |                        $$ |\__|          
- $$ |$$  /  $$$$$$\  $$$$$$\    $$$$$$\   $$$$$$\  $$ |$$\ $$$$$$$\  
- $$$$$  /   \____$$\ \_$$  _|  $$  __$$\ $$  __$$\ $$ |$$ |$$  __$$\ 
+ $$\   $$\             $$\                         $$\ $$\
+ $$ | $$  |            $$ |                        $$ |\__|
+ $$ |$$  /  $$$$$$\  $$$$$$\    $$$$$$\   $$$$$$\  $$ |$$\ $$$$$$$\
+ $$$$$  /   \____$$\ \_$$  _|  $$  __$$\ $$  __$$\ $$ |$$ |$$  __$$\
  $$  $$<    $$$$$$$ |  \033[1;36mKali linux tools installer\033[1;m |$$ |$$ |$$ |  $$ |
  \033[1;36m$$ |\$$\  $$  __$$ |  $$ |$$\ $$ |  $$ |$$ |  $$ |$$ |$$ |$$ |  $$ |
  $$ | \$$\ \$$$$$$$ |  \$$$$  |\$$$$$$  |\$$$$$$  |$$ |$$ |$$ |  $$ |
@@ -30,7 +30,7 @@ def main():
 		def inicio1():
 			while True:
 				print ('''
-1) Add Kali repositories & Update 
+1) Add Kali repositories & Update
 2) View Categories
 3) Install classicmenu indicator
 4) Install Kali menu
@@ -38,8 +38,8 @@ def main():
 
 			''')
 
-				opcion0 = raw_input("\033[1;36mkat > \033[1;m")
-			
+				opcion0 = input("\033[1;36mkat > \033[1;m")
+
 				while opcion0 == "1":
 					print ('''
 1) Add kali linux repositories
@@ -48,7 +48,7 @@ def main():
 4) View the contents of sources.list file
 
 					''')
-					repo = raw_input("\033[1;32mWhat do you want to do ?> \033[1;m")
+					repo = input("\033[1;32mWhat do you want to do ?> \033[1;m")
 					if repo == "1":
 						cmd1 = os.system("apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ED444FF07D8D0BF6")
 						cmd2 = os.system("echo '# Kali linux repositories | Added by Katoolin\ndeb http://http.kali.org/kali kali-rolling main contrib non-free' >> /etc/apt/sources.list")
@@ -79,11 +79,11 @@ def main():
 						print (file.read())
 
 					else:
-						print ("\033[1;31mSorry, that was an invalid command!\033[1;m") 					
-						
+						print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
+
 
 				if opcion0 == "3":
-					print (''' 
+					print ('''
 ClassicMenu Indicator is a notification area applet (application indicator) for the top panel of Ubuntu's Unity desktop environment.
 
 It provides a simple way to get a classic GNOME-style application menu for those who prefer this over the Unity dash menu.
@@ -93,17 +93,17 @@ Like the classic GNOME menu, it includes Wine games and applications if you have
 For more information , please visit : http://www.florian-diesch.de/software/classicmenu-indicator/
 
 ''')
-					repo = raw_input("\033[1;32mDo you want to install classicmenu indicator ? [y/n]> \033[1;m")
+					repo = input("\033[1;32mDo you want to install classicmenu indicator ? [y/n]> \033[1;m")
 					if repo == "y":
 						cmd1 = os.system("add-apt-repository ppa:diesch/testing && apt-get update")
 						cmd = os.system("sudo apt-get install classicmenu-indicator")
 
 				elif opcion0 == "4"	:
-					repo = raw_input("\033[1;32mDo you want to install Kali menu ? [y/n]> \033[1;m")
+					repo = input("\033[1;32mDo you want to install Kali menu ? [y/n]> \033[1;m")
 					if repo == "y":
 						cmd1 = os.system("apt-get install kali-menu")
 				elif opcion0 == "5":
-					print (''' 
+					print ('''
 ****************** +Commands+ ******************
 
 
@@ -126,19 +126,19 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 5) Sniffing & Spoofing				12) Reverse Engineering
 6) Maintaining Access				13) Hardware Hacking
 7) Reporting Tools 				14) Extra
-									
+
 0) All
 
 			 ''')
 						print ("\033[1;32mSelect a category or press (0) to install all Kali linux tools .\n\033[1;m")
 
-						opcion1 = raw_input("\033[1;36mkat > \033[1;m")
+						opcion1 = input("\033[1;36mkat > \033[1;m")
 						if opcion1 == "back":
 							inicio1()
 						elif opcion1 == "gohome":
 							inicio1()
 						elif opcion1 == "0":
-							cmd = os.system("apt-get -f install acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy apktool dex2jar python-distorm3 edb-debugger jad javasnoop jd ollydbg smali valgrind yara android-sdk apktool arduino dex2jar sakis3g smali && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")	
+							cmd = os.system("apt-get -f install acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy apktool dex2jar python-distorm3 edb-debugger jad javasnoop jd ollydbg smali valgrind yara android-sdk apktool arduino dex2jar sakis3g smali && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")
 						while opcion1 == "1":
 							print ('''
 \033[1;36m=+[ Information Gathering\033[1;m
@@ -174,10 +174,10 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 29) goofile
 
 0) Install all Information Gathering tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install acccheck")
 
@@ -297,9 +297,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()		
+								inicio1()
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")				
+								cmd = os.system("apt-get install -y acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 
@@ -329,10 +329,10 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 					35) Yersinia
 
 0) Install all Vulnerability Analysis tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install bbqsql")
 
@@ -408,9 +408,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()						
+								inicio1()
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia")						
+								cmd = os.system("apt-get install -y bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 
@@ -432,13 +432,13 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 12) Fern Wifi Cracker			28) RTLSDR Scanner
 13) Ghost Phisher			29) Spooftooph
 14) GISKismet				30) Wifi Honey				31) Wifitap
-16) gr-scan				32) Wifite 
+16) gr-scan				32) Wifite
 
 0) Install all Wireless Attacks tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install aircrack-ng")
 
@@ -508,7 +508,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()						
+								inicio1()
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 						while opcion1 == "4":
@@ -538,12 +538,12 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 					41) zaproxy
 
 0) Install all Web Applications tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
 
-							
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install apache-users")
 
@@ -627,13 +627,13 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "40":
 								cmd = os.system("apt-get install xsser")
 							elif opcion2 == "41":
-								cmd = os.system("apt-get install zaproxy")										
+								cmd = os.system("apt-get install zaproxy")
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()	
+								inicio1()
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy")												
+								cmd = os.system("apt-get install -y apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 						while opcion1 == "5":
@@ -655,13 +655,13 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 13) rebind				29) Wireshark
 14) responder				30) xspy
 15) rtpbreak				31) Yersinia
-16) rtpinsertsound			32) zaproxy 
+16) rtpinsertsound			32) zaproxy
 
 0) Install all Sniffing & Spoofing tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install burpsuite")
 
@@ -735,7 +735,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 
 
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy")  
+								cmd = os.system("apt-get install -y burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 
@@ -747,7 +747,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  2) Cymothoa
  3) dbd
  4) dns2tcp
- 5) http-tunnel	
+ 5) http-tunnel
  6) HTTPTunnel
  7) Intersect
  8) Nishang
@@ -761,10 +761,10 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 16) Weevely
 
 0) Install all Maintaining Access tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install cryptcat")
 
@@ -802,7 +802,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
 								cmd = os.system("apt-get install -y cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely")
 							else:
@@ -815,17 +815,17 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 2) CutyCapt
 3) dos2unix
 4) Dradis
-5) KeepNote	
+5) KeepNote
 6) MagicTree
 7) Metagoofil
 8) Nipper-ng
 9) pipal
 
 0) Install all Reporting Tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install casefile")
 
@@ -849,9 +849,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal")  
+								cmd = os.system("apt-get install -y casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 
@@ -863,7 +863,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  2) Backdoor Factory
  3) BeEF
  4) cisco-auditing-tool
- 5) cisco-global-exploiter	
+ 5) cisco-global-exploiter
  6) cisco-ocs
  7) cisco-torch
  8) commix
@@ -878,10 +878,10 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 17) Yersinia
 
 0) Install all Exploitation Tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install armitage")
 
@@ -921,9 +921,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss")  						
+								cmd = os.system("apt-get install -y armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 
@@ -946,10 +946,10 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 					23) Xplico
 
 0) Install all Forensics Tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install binwalk")
 
@@ -1001,9 +1001,9 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
-								cmd = os.system("apt-get install -y binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico")						
+								cmd = os.system("apt-get install -y binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico")
 							else:
 								print ("\033[1;31mSorry, that was an invalid command!\033[1;m")
 						while opcion1 == "10":
@@ -1014,7 +1014,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  2) FunkLoad
  3) iaxflood
  4) Inundator
- 5) inviteflood	
+ 5) inviteflood
  6) ipv6-toolkit
  7) mdk3
  8) Reaver
@@ -1023,13 +1023,13 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 11) t50
 12) Termineter
 13) THC-IPV6
-14) THC-SSL-DOS 		
+14) THC-SSL-DOS
 
 0) Install all Stress Testing tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install dhcpig")
 
@@ -1059,11 +1059,11 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "13":
 								cmd = os.system("apt-get install thc-ipv6")
 							elif opcion2 == "14":
-								cmd = os.system("apt-get install thc-ssl-dos ")    				             										
+								cmd = os.system("apt-get install thc-ssl-dos ")
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
 								cmd = os.system("apt-get install -y dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos")
 							else:
@@ -1087,15 +1087,15 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 13) HexorBase				31) Statsprocessor
 14) THC-Hydra				32) THC-pptp-bruter
 15) John the Ripper			33) TrueCrack
-16) Johnny				34) WebScarab 
-17) keimpx				35) wordlists 
-18) Maltego Teeth			36) zaproxy 
+16) Johnny				34) WebScarab
+17) keimpx				35) wordlists
+18) Maltego Teeth			36) zaproxy
 
 0) Install all Password Attacks tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install acccheck")
 
@@ -1173,7 +1173,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
 								cmd = os.system("apt-get install -y acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy")
 							else:
@@ -1186,7 +1186,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  2) dex2jar
  3) diStorm3
  4) edb-debugger
- 5) jad	
+ 5) jad
  6) javasnoop
  7) JD-GUI
  8) OllyDbg
@@ -1195,10 +1195,10 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 11) YARA
 
 0) Install all Reverse Engineering tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install apktool")
 
@@ -1226,7 +1226,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
 								cmd = os.system("apt-get install -y apktool dex2jar python-diStorm3 edb-debugger jad javasnoop JD OllyDbg smali Valgrind YARA")
 							else:
@@ -1239,14 +1239,14 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
  2) apktool
  3) Arduino
  4) dex2jar
- 5) Sakis3G	
+ 5) Sakis3G
  6) smali
 
 0) Install all Hardware Hacking tools
-				 
+
 						''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("apt-get install android-sdk")
 
@@ -1265,7 +1265,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 							elif opcion2 == "back":
 								inicio()
 							elif opcion2 == "gohome":
-								inicio1()   
+								inicio1()
 							elif opcion2 == "0":
 								cmd = os.system("apt-get install -y android-sdk apktool arduino dex2jar sakis3g smali")
 							else:
@@ -1278,7 +1278,7 @@ For more information , please visit : http://www.florian-diesch.de/software/clas
 2) Squid3
 				''')
 							print ("\033[1;32mInsert the number of the tool to install it .\n\033[1;m")
-							opcion2 = raw_input("\033[1;36mkat > \033[1;m")
+							opcion2 = input("\033[1;36mkat > \033[1;m")
 							if opcion2 == "1":
 								cmd = os.system("git clone https://github.com/LionSec/wifresti.git && cp wifresti/wifresti.py /usr/bin/wifresti && chmod +x /usr/bin/wifresti && wifresti")
 								print (" ")
